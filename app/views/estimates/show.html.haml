@@ -1,0 +1,86 @@
+%h2= @estimate.title
+%p= @estimate_time
+%p= @estimate_weight
+
+.ui.two.column.grid
+  .column
+    .ui.horizontal.list
+      .item
+        %h4 Name:
+        = @estimate.title
+      .item
+        %h4 Phone:
+        = @estimate.phone
+      .item
+        %h4 Email:
+        = @estimate.email
+      .item
+        %h4 Contact:
+        = @estimate.primary_contact
+      .item
+        %h4 Move Time:
+        = @estimate.moving_date
+  .column
+    %h4 Description:
+    %p
+      = @estimate.description
+
+.ui.divider
+.ui.two.column.grid
+  .column
+    %h3 Current Address
+    .ui.list
+      .item
+        %h4 Type
+        = @estimate.start_type
+      .item
+        %h4{style: 'margin-bottom: 0px;'} Address
+        = @estimate.start_address
+        .br
+        = @estimate.start_city
+        = @estimate.start_state
+        = @estimate.start_zip
+
+  .column
+    %h3 Destination
+    .ui.list
+      .item
+        %h4 Type
+        = @estimate.destination_type
+      .item
+        %h4{style: 'margin-bottom: 0px;'} Address
+        = @estimate.destination_address
+        .br
+        = @estimate.destination_city
+        = @estimate.destination_state
+        = @estimate.destination_zip
+
+.ui.divider
+
+%table.ui.celled.table
+  %tbody
+    - @estimate.rooms.each do |room|
+      %tr{style: 'background-color: #d3d3d3;'}
+        %td
+          = room.name
+        %td
+          Description
+        %td
+          Quantity
+      - room.items.each do |item|
+        %tr
+          %td
+            = item.name
+          %td
+            =item.description
+          %td
+            = item.quantity
+
+= link_to "Back", root_path, class: "ui primary button"
+= link_to "Edit", edit_estimate_path, class: "ui secondary button"
+= link_to "Delete", estimate_path, method: :delete, data: { confirm: "Are you sure?"}, class: "ui negative button"
+
+:javascript
+  $('.ui.modal')
+    .modal('attach events', '.test.ui.button',' show')
+  ;
