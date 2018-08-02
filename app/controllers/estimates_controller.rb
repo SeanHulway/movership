@@ -22,6 +22,11 @@ class EstimatesController < ApplicationController
       min = 0
     end
 
+    if(hour < 1)
+      hour = 1
+      min = 0
+    end
+
     @estimate_time = "%2d:%02d" % [hour, min]
   end
 

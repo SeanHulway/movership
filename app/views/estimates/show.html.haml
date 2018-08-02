@@ -1,6 +1,14 @@
 %h2= @estimate.title
-%p= @estimate_time
-%p= @estimate_weight
+
+.ui.horizontal.list
+  .item
+    %h4 Estimate Time:  
+  .item  
+    %p= @estimate_time
+  .item
+    %h4 Estimate Weight:
+  .item
+    %p= @estimate_weight
 
 .ui.two.column.grid
   .column
