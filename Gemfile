@@ -8,9 +8,9 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 
-gem 'less-rails-semantic_ui'
-gem 'autoprefixer-rails', '8.6.5'
-gem 'therubyracer'
+# gem 'less-rails-semantic_ui'
+# gem 'autoprefixer-rails', '8.6.5'
+# gem 'therubyracer'
 
 gem 'simple_form'
 gem 'cocoon'
