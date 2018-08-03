@@ -49,3 +49,6 @@ test:
 #
 production:
   url: <%= ENV["REDISCLOUD_URL"] %>
+  database: movership_production
+  username: movership
+  password: <%= ENV['MOVERSHIP_DATABASE_PASSWORD'] %>
