@@ -223,7 +223,7 @@ DEPENDENCIES
   chromedriver-helper
   cocoon
   coffee-rails (~> 4.2)
-  devise (~> 4.4.1)
+  devise
   haml
   jbuilder (~> 2.5)
   jquery-rails
