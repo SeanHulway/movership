@@ -12,10 +12,6 @@ gem 'redis'
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
-# gem 'less-rails-semantic_ui'
-# gem 'autoprefixer-rails', '8.6.5'
-# gem 'therubyracer'
-
 gem 'simple_form'
 gem 'cocoon'
 gem 'jquery-rails'
