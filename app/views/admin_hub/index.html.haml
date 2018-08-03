@@ -1,0 +1,22 @@
+- if user_signed_in?
+  = link_to 'Sign Out', destroy_user_session_path, method: :delete
+- else
+  = link_to 'Sign In', user_session_path
+  
+- if current_user.try(:admin?)
+  %table.ui.selectable.celled.table
+    %thead
+      %tr
+        %th Email
+        %th Admin?
+        %th Toggle Admin
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.email
+          %td= user.admin
+          %td= link_to "toggle", toggle_admin_admin_hub_index_path(id: user.id)
+- else
+  .ui.basic.center.aligned.segment
+    %h2 OPE! You wandered into uncharted territory.
+    = link_to 'CLICK HERE TO FLEE!', root_path, class: "ui primary button"

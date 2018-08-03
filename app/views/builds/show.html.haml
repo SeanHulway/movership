@@ -1,0 +1,94 @@
+%h2= @build.name
+
+.ui.horizontal.list
+  .item
+    %h4 Estimate Time:  
+  .item  
+    %p= @build_time
+  .item
+    %h4 Estimate Weight:
+  .item
+    %p= @build_weight
+
+.ui.two.column.grid
+  .column
+    .ui.horizontal.list
+      .item
+        %h4 Name:
+        = @build.name
+      .item
+        %h4 Phone:
+        = @build.phone
+      .item
+        %h4 Email:
+        = @build.email
+      .item
+        %h4 Contact:
+        = @build.primary_contact
+      .item
+        %h4 Move Time:
+        = @build.moving_date
+  .column
+    %h4 Description:
+    %p
+      = @build.description
+
+.ui.divider
+.ui.two.column.grid
+  .column
+    %h3 Current Address
+    .ui.list
+      .item
+        %h4 Type
+        = @build.start_type
+      .item
+        %h4{style: 'margin-bottom: 0px;'} Address
+        = @build.start_address
+        .br
+        = @build.start_city
+        = @build.start_state
+        = @build.start_zip
+
+  .column
+    %h3 Destination
+    .ui.list
+      .item
+        %h4 Type
+        = @build.destination_type
+      .item
+        %h4{style: 'margin-bottom: 0px;'} Address
+        = @build.destination_address
+        .br
+        = @build.destination_city
+        = @build.destination_state
+        = @build.destination_zip
+
+.ui.divider
+
+%table.ui.celled.table
+  %tbody
+    - @build.rooms.each do |room|
+      %tr{style: 'background-color: #d3d3d3;'}
+        %td
+          = room.name
+        %td
+          Description
+        %td
+          Quantity
+      - room.items.each do |item|
+        %tr
+          %td
+            = item.name
+          %td
+            =item.description
+          %td
+            = item.quantity
+
+= link_to "Edit", edit_build_path, class: "ui secondary button"
+- if current_user.try(:admin?)
+  = link_to "Delete", build_path, method: :delete, data: { confirm: "Are you sure?"}, class: "ui negative button"
+
+:javascript
+  $('.ui.modal')
+    .modal('attach events', '.test.ui.button',' show')
+  ;

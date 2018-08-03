@@ -1,3 +1,5 @@
+- if user_signed_in?
+  = link_to 'Sign Out', destroy_user_session_path, method: :delete
 .ui.aligned.basic.segment
   .ui.grid
     .twelve.wide.column
@@ -43,7 +45,7 @@
         .ui.secondary.center.aligned.segment{style: 'padding: 35 25 35 25'}
           .ui.fluid.blue.submit.button CALL 833.485.2929
           .ui.horizontal.divider OR
-          = link_to 'Start with our simple online form', build_path, class: "ui fluid blue submit button"
+          = link_to 'Start with our simple online form', new_build_path, class: "ui fluid blue submit button"
 
 .ui.divider
 

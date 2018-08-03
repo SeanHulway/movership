@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get 'home_funnel' => 'home_funnel#index'
 
   resources :estimates
-  get 'build' => 'estimates#new'
+  resources :builds
+
+  resources :admin_hub do
+    collection do
+      get :toggle_admin
+    end
+  end
   
   root 'home_funnel#index'
 end

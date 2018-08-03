@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_205925) do
+ActiveRecord::Schema.define(version: 2018_08_03_184213) do
+
+  create_table "builds", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "phone"
+    t.string "email"
+    t.string "primary_contact"
+    t.string "start_type"
+    t.string "start_address"
+    t.string "start_city"
+    t.string "start_state"
+    t.string "start_zip"
+    t.string "destination_type"
+    t.string "destination_address"
+    t.string "destination_city"
+    t.string "destination_state"
+    t.string "destination_zip"
+    t.string "moving_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "{:foreign_key=>true}_id"
+    t.index ["{:foreign_key=>true}_id"], name: "index_builds_on_{:foreign_key=>true}_id"
+  end
 
   create_table "estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -36,19 +59,19 @@ ActiveRecord::Schema.define(version: 2018_07_30_205925) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "quantity"
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
     t.index ["room_id"], name: "index_items_on_room_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.bigint "estimate_id"
+    t.string "build_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["estimate_id"], name: "index_rooms_on_estimate_id"
+    t.index ["build_id"], name: "index_rooms_on_build_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,10 +87,12 @@ ActiveRecord::Schema.define(version: 2018_07_30_205925) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.boolean "master", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "items", "rooms"
-  add_foreign_key "rooms", "estimates"
+  add_foreign_key "rooms", "builds"
 end

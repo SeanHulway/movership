@@ -1,0 +1,40 @@
+- if user_signed_in?
+  = link_to 'Sign Out', destroy_user_session_path, method: :delete
+
+%h1 Builds
+
+.ui.large.icon.input
+  %input#search{placeholder: "Search...", type: "text"}
+  %i.search.icon
+
+%table.ui.selectable.celled.table
+  %thead
+    %tr
+      %th Name
+      %th Phone
+      %th Email
+      %th Date
+  %tbody
+    - @builds.each do |build|
+      %tr
+        %td
+          - if build.name.present?
+            = link_to build.name, build
+          - else
+            = link_to 'Name not found', build
+        %td= build.phone
+        %td= build.email
+        %td= build.created_at
+
+:javascript
+  var $rows = $('table tbody tr');
+  $('#search').keyup(function() {
+    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+      reg = RegExp(val, 'i'),
+      text;
+    console.log($rows)
+    $rows.show().filter(function() {
+      text = $(this).text().replace(/\s+/g, ' ');
+      return !reg.test(text);
+    }).hide();
+  });

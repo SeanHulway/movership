@@ -6,7 +6,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = render 'layouts/main_nav'
+    / = render 'layouts/main_nav'
     .ui.container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: 'alert'

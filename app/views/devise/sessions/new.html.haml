@@ -1,0 +1,25 @@
+.ui.grid
+  .four.wide.column
+  .eight.wide.column
+    .ui.segment
+      .ui.center.aligned.header Log in
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-inputs
+          .ui.form
+            = f.input :email, required: false, autofocus: true, class: 'ui input'
+
+            = f.input :password, required: false, class: 'ui input'
+            .inline.field
+              .ui.checkbox
+                = f.input :remember_me, as: :boolean, type: 'checkbox' if devise_mapping.rememberable?
+        .ui.hidden.divider
+        .form-actions
+          = f.button :submit, "Log in"
+        .ui.divider
+      = render "devise/shared/links"
+  .four.wide.column
+
+:javascript
+  $('.ui.checkbox')
+    .checkbox()
+  ;
