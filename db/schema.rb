@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_184213) do
+ActiveRecord::Schema.define(version: 2018_08_03_194612) do
 
   create_table "builds", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -33,27 +33,6 @@ ActiveRecord::Schema.define(version: 2018_08_03_184213) do
     t.datetime "updated_at", null: false
     t.bigint "{:foreign_key=>true}_id"
     t.index ["{:foreign_key=>true}_id"], name: "index_builds_on_{:foreign_key=>true}_id"
-  end
-
-  create_table "estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "phone"
-    t.string "email"
-    t.string "primary_contact"
-    t.string "start_type"
-    t.string "start_address"
-    t.string "start_city"
-    t.string "start_state"
-    t.string "start_zip"
-    t.string "destination_type"
-    t.string "destination_address"
-    t.string "destination_city"
-    t.string "destination_state"
-    t.string "destination_zip"
-    t.string "moving_date"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
