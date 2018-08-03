@@ -47,5 +47,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  url: <%= ENV['DATABASE_URL'] %>
+# production:
+#   <<: *default
+#   database: movership_production
+#   username: movership
+#   password: <%= ENV['MOVERSHIP_DATABASE_PASSWORD'] %>
