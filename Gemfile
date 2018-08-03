@@ -8,6 +8,8 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 
+gem 'redis'
+
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 # gem 'less-rails-semantic_ui'
