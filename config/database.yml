@@ -47,3 +47,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+production:
+  adapter: redisapp
+  url: <%= ENV['REDIS_URL'] %>
