@@ -47,5 +47,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  url: <%= ENV['REDIS_URL'] %>
