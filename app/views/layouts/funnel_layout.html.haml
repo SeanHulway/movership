@@ -7,6 +7,8 @@
     = csrf_meta_tags
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"}
   %body
+    - if current_user.try(:admin?)
+      = render 'layouts/admin_nav'
     .ui.container
       - flash.each do |name, msg|
         .ui.hidden.divider

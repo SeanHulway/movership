@@ -1,0 +1,11 @@
+.ui.container
+  .ui.secondary.pointing.menu
+    = link_to 'Hul-A-Way Admin', root_path, class: "header item"
+    .right.menu
+      = link_to 'Home', root_path, class: "a item"
+      = link_to 'Builds', builds_path, class: "a item"
+      = link_to 'Admin_hub', admin_hub_index_path, class: "a item"
+      - if user_signed_in?
+        = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'a item'
+      - else
+        = link_to 'Sign In', user_session_path

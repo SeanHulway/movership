@@ -1,4 +1,5 @@
 class AdminHubController < ApplicationController
+  layout 'funnel_layout'
   def index
     @users = User.all.order("created_at DESC")
   end
