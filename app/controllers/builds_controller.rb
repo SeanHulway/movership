@@ -11,10 +11,9 @@ class BuildsController < ApplicationController
   end
 
   def show
-    sec = (calculate_total_cube(@build)*7/1000.00 * 3600).to_i
+    sec = (calculate_total_cube(@build)*6/1000.00 * 3600).to_i
     min, sec = sec.divmod(60)
     hour, min = min.divmod(60)
-    @build_weight = calculate_total_cube(@build)*7
 
     if(min < 35 && 5 < min)
       min = 30
@@ -30,6 +29,13 @@ class BuildsController < ApplicationController
       min = 0
     end
 
+    cost = (hour * 105)
+    if(min = 30)
+      cost = (cost + 53)
+    end
+
+    @build_weight = (calculate_total_cube(@build)*6).to_s + 'lbs'
+    @build_cost = "$" + cost.to_s
     @build_time = "%2d:%02d" % [hour, min]
   end
 

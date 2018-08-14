@@ -4,13 +4,13 @@
   %input#search{placeholder: "Search...", type: "text"}
   %i.search.icon
 
-%table.ui.selectable.celled.table
+%table.ui.selectable.table
   %thead
     %tr
       %th Name
       %th Phone
       %th Email
-      %th Date
+      %th.right.aligned Date
   %tbody
     - @builds.each do |build|
       %tr
@@ -21,7 +21,7 @@
             = link_to 'Name not found', build
         %td= build.phone
         %td= build.email
-        %td= build.created_at
+        %td.right.aligned= build.created_at.strftime("%B %d, %Y @ %I:%M %p")
 
 :javascript
   var $rows = $('table tbody tr');

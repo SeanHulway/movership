@@ -1,67 +1,72 @@
-%h2= @build.name
-
-.ui.horizontal.list
-  .item
-    %h4 Estimate Time:  
-  .item  
-    %p= @build_time
-  .item
-    %h4 Estimate Weight:
-  .item
-    %p= @build_weight
+%h1.ui.header.center{style: 'font-size: 3em; text-align: center;'}
+  Hul-A-Way
 
 .ui.two.column.grid
   .column
-    .ui.horizontal.list
-      .item
-        %h4 Name:
+    .row
+      %h2
         = @build.name
-      .item
-        %h4 Phone:
-        = @build.phone
-      .item
-        %h4 Email:
-        = @build.email
-      .item
-        %h4 Contact:
-        = @build.primary_contact
-      .item
-        %h4 Move Time:
-        = @build.moving_date
+    .row
+      .ui.horizontal.list
+        .item
+          %h4 Estimated Time:   
+          = @build_time
+        .item
+          %h4 Estimated Cost:
+          = @build_cost
+        .item
+          %h4 Estimated Weight:
+          = @build_weight
+  .column
+
+.ui.two.column.grid
+  .column
+    .row
+      .ui.horizontal.list
+        .item
+          %h4 Phone:
+          = @build.phone
+        .item
+          %h4 Email:
+          = @build.email
+    .row
+      .ui.horizontal.list
+        .item
+          %h4 Contact by:
+          = @build.primary_contact
+        .item
+          %h4 Date of move:
+          = @build.moving_date
   .column
     %h4 Description:
-    %p
-      = @build.description
+    = @build.description
 
-.ui.divider
 .ui.two.column.grid
   .column
-    %h3 Current Address
     .ui.list
       .item
-        %h4 Type
-        = @build.start_type
-      .item
-        %h4{style: 'margin-bottom: 0px;'} Address
+        %h4{style: 'margin-bottom: 0px;'} Current Address
         = @build.start_address
         .br
         = @build.start_city
         = @build.start_state
         = @build.start_zip
+      .item
+        %h5 Type
+        = @build.start_type
 
   .column
-    %h3 Destination
     .ui.list
       .item
-        %h4 Type
-        = @build.destination_type
-      .item
-        %h4{style: 'margin-bottom: 0px;'} Address
+        %h4{style: 'margin-bottom: 0px;'} Destination Address
         = @build.destination_address
         .br
         = @build.destination_city
         = @build.destination_state
         = @build.destination_zip
+      .item
+        %h5 Type
+        = @build.destination_type
 
 .ui.divider
 
