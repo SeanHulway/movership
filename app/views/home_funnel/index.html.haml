@@ -6,8 +6,8 @@
         .sub.header Metro Detroit Moving Company
     .four.wide.column
       %h3.ui.header{style: 'padding-top: 25px'}
-        I want a simple saying here
-        .sub.header But for now call 833.485.2929
+        Get your free quote
+        .sub.header Call 833.485.2929
 
 .ui.divider
 
@@ -26,7 +26,7 @@
           .item
             %i.large.check.icon
             .content
-              Rates as low as $85.00 per hour
+              Rates as low as $95.00 per hour
           .item
             %i.large.check.icon
             .content
@@ -35,13 +35,17 @@
             %i.large.check.icon
             .content
               Offers full value protection for all your items
+          .item
+            %i.large.check.icon
+            .content
+              Try our free online form to get a quick estimate
     .four.wide.column
       .ui.segments
         .ui.inverted.segment
           .h2.ui.header
             Start with your free quote
         .ui.secondary.center.aligned.segment{style: 'padding: 35 25 35 25'}
-          .ui.fluid.blue.submit.button CALL 833.485.2929
+          %a.ui.fluid.blue.submit.button{href: "tel:+1-833-485-2929", title: "Clicking this button may only works on a mobile phone"} CALL 833.485.2929
           .ui.horizontal.divider OR
           = link_to 'Start with our simple online form', new_build_path, class: "ui fluid blue submit button"
 

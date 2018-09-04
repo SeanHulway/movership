@@ -41,6 +41,9 @@
 
   .ui.segment#build{style: 'display: none;'}
     %h3 Tell us about your move
+    .ui.positive.message
+      %i.close.icon
+      Take your time and add everything you plan on having moved. This will help us give you the best estimate possible. For best results go room by room and add everything you see. Don't forget to add boxes!
     #rooms
       = f.simple_fields_for :rooms do |room|
         = render 'room_fields', f: room

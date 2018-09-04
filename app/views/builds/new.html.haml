@@ -1,3 +1,17 @@
 %h1 New Estimate
+.ui.positive.message
+  %i.close.icon
+  To get the most accurate estimate please fill out all information correctly to the best of your ability.
 
 = render 'form'
+
+
+:javascript
+  $('.message .close')
+    .on('click', function() {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+    })
+  ;
