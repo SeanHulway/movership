@@ -11,7 +11,7 @@
 .ui.divider{style: 'background-color: red'}
 
 .ui.basic.segment
-  .ui.stackable.grid
+  .ui.computer.only.grid
     .one.wide.column
     .ten.wide.column
       %h1.ui.header{style: 'font-size: 3em'}
@@ -39,6 +39,42 @@
             .content
               Try our free online form to get a quick estimate
     .four.wide.column
+      .ui.segments
+        .ui.inverted.segment
+          .h2.ui.header
+            Start with your free quote
+        .ui.secondary.center.aligned.segment{style: 'padding: 35 25 35 25'}
+          %a.ui.fluid.blue.submit.button{href: "tel:+1-833-485-2929", title: "Clicking this button may only works on a mobile phone"} CALL 833.485.2929
+          .ui.horizontal.divider OR
+          = link_to 'Start with our simple online form', new_build_path, class: "ui fluid blue submit button"
+
+  .ui.mobile.tablet.only.grid
+    .ui.basic.segment
+      %h1.ui.header{style: 'font-size: 3em'}
+        Let us make your next move easy
+      .ui.basic.segment
+        .ui.huge.list
+          .item
+            %i.large.check.icon
+            .content
+              Professional local moves
+          .item
+            %i.large.check.icon
+            .content
+              Rates as low as $95.00 per hour
+          .item
+            %i.large.check.icon
+            .content
+              Safe and reliable packing
+          .item
+            %i.large.check.icon
+            .content
+              Offers full value protection for all your items
+          .item
+            %i.large.check.icon
+            .content
+              Try our free online form to get a quick estimate
+
       .ui.segments
         .ui.inverted.segment
           .h2.ui.header
