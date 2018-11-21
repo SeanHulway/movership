@@ -13,6 +13,5 @@
       - flash.each do |name, msg|
         .ui.hidden.divider
         = content_tag :div, msg, class: 'ui message'
-      .ui.basic.segment
-        = yield
+      = yield
     = render 'layouts/funnel_footer'
